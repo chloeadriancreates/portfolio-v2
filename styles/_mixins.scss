@@ -1,0 +1,41 @@
+@use "../styles/functions";
+
+@mixin flex($direction: row, $justify: flex-start, $align: flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin assistive() {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+@mixin transition($property: all) {
+    transition: $property 0.3s ease;
+}
+
+@mixin link($color: black) {
+    @include flex(column, flex-start, stretch);
+
+    &::after {
+        @include transition;
+        content: "";
+        width: 0%;
+        height: functions.pixelsToRem(1.5);
+        background: $color;
+        transform-origin: center;
+        margin-top: functions.pixelsToRem(1);
+    }
+
+    &:hover::after,
+    &:focus::after {
+        width: 100%;
+    }
+}
