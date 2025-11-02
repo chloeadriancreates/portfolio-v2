@@ -8,7 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { home } from "@/lib/home";
 import { useEffect, useState } from "react";
 
-const Header = ({ language, position }: { language: Language; position: "hero" | "sticky" }) => {
+const Header = ({ language, position }: { language: Language; position: "hero" | "content" }) => {
     const router = useRouter();
     const { header } = home[language];
     const [uiLang, setUiLang] = useState(language);
@@ -31,13 +31,11 @@ const Header = ({ language, position }: { language: Language; position: "hero" |
         setUiLang(destinationLang);
         setDestinationLang(language);
 
-        setTimeout(() => {
-            router.push(newPathname);
-        }, 400);
+        setTimeout(() => router.push(newPathname, { scroll: false }), 400);
     };
 
     return (
-        <header className={styles.header} data-position={position}>
+        <header id={position} className={styles.header}>
             <Link href="/" title={header.homepage}>Chloé Adrian</Link>
             <Link
                 href={newPathname}

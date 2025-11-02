@@ -26,30 +26,60 @@
                 aspect-ratio: 1;
                 border: 1px solid variables.$chocolate;
                 border-radius: 50%;
+                height: functions.pixelsToRem(50);
+                width: functions.pixelsToRem(50);
 
                 &>p {
                     text-transform: uppercase;
                     font-size: functions.pixelsToRem(25);
-                    margin: functions.pixelsToRem(10);
                     aspect-ratio: 1;
-                    height: functions.pixelsToRem(30);
-                    width: functions.pixelsToRem(30);
+                    height: functions.pixelsToRem(28);
                 }
             }
 
             &[lang="fr"] {
-                box-shadow: inset -60px 0 30px -5px variables.$pineapple;
-
                 &>div {
-                    margin-left: functions.pixelsToRem(60);
+                    margin-right: functions.pixelsToRem(60);
                 }
             }
 
             &[lang="en"] {
-                box-shadow: inset 60px 0 30px -5px variables.$pineapple;
-
                 &>div {
-                    margin-right: functions.pixelsToRem(60);
+                    margin-left: functions.pixelsToRem(60);
+                }
+            }
+        }
+    }
+
+    &[id="hero"] {
+        &>a {
+            &:last-child {
+                &[lang="fr"] {
+                    box-shadow: inset 60px 0 30px -5px variables.$pineapple;
+                }
+
+                &[lang="en"] {
+                    box-shadow: inset -60px 0 30px -5px variables.$pineapple;
+                }
+            }
+        }
+    }
+
+    &[id="content"] {
+        &>a {
+            &:last-child {
+                background-color: variables.$pineapple;
+
+                &[lang="fr"] {
+                    box-shadow: inset -60px 0 30px -5px variables.$strawberry;
+                }
+
+                &[lang="en"] {
+                    box-shadow: inset 60px 0 30px -5px variables.$strawberry;
+                }
+
+                & div {
+                    background: variables.$coconut;
                 }
             }
         }
