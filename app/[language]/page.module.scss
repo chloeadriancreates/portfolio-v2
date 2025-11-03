@@ -1,5 +1,7 @@
 @use "../../styles/variables";
+@use "../../styles/mixins";
 @use "../../styles/functions";
+@use "../../styles/breakpoints";
 
 .main {
     & h2 {
@@ -9,10 +11,61 @@
         text-align: center;
     }
 
-    & section[id="projects"] {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: functions.pixelsToRem(60);
-        margin: functions.pixelsToRem(60) functions.pixelsToRem(80) functions.pixelsToRem(80);
+    & section {
+        &[id="projects"] {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: functions.pixelsToRem(60);
+            margin: functions.pixelsToRem(60) functions.pixelsToRem(80) functions.pixelsToRem(120);
+
+            @include breakpoints.laptop {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        &[id="about"] {
+            margin: 0 functions.pixelsToRem(80);
+
+            &>div[id="photos"] {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: functions.pixelsToRem(60);
+                margin: functions.pixelsToRem(60) 0;
+
+                &>div {
+                    @include mixins.flex(column, flex-start, stretch);
+                    position: relative;
+
+                    &>img {
+                        border: 1px solid variables.$chocolate;
+                        aspect-ratio: 1;
+                        height: fit-content!important;
+                    }
+
+                    &>p {
+                        @include mixins.flex(row, center, center);
+                        border: 1px solid variables.$chocolate;
+                        border-top: none;
+                        padding: functions.pixelsToRem(20);
+                        font-family: variables.$display;
+                        font-size: functions.pixelsToRem(variables.$body);
+                        text-align: center;
+                        background: variables.$gradient;
+                        flex: 1;
+                    }
+                }
+            }
+
+            &>div[id="content"] {
+                @include mixins.flex(column, flex-start, flex-start);
+                gap: functions.pixelsToRem(10);
+                margin-bottom: functions.pixelsToRem(60);
+
+                &>p {
+                    font-size: functions.pixelsToRem(variables.$body);
+                    line-height: 150%;
+                }
+            }
+        }
     }
 }

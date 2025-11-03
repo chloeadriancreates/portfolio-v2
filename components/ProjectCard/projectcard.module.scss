@@ -39,7 +39,7 @@
 
             &>p {
                 font-size: functions.pixelsToRem(variables.$body);
-                line-height: 1.6;
+                line-height: 150%;
                 max-width: 34ch;
 
                 &[id="tags"] {

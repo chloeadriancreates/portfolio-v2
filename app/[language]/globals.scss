@@ -18,5 +18,12 @@ html {
 }
 
 img {
-    position: relative!important;
+    position: relative !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        transform: none !important;
+    }
 }
