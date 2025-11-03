@@ -5,7 +5,7 @@
 .header {
     @include mixins.flex(row, space-between, center);
     width: 100%;
-    padding: functions.pixelsToRem(40) functions.pixelsToRem(80);
+    padding: functions.pixelsToRem(30) functions.pixelsToRem(80);
 
     &>a {
         &:first-child {
@@ -75,13 +75,9 @@
         }
     }
 
-    &[id="content"] {
-        scroll-padding-top: 156px;
-        position: sticky;
-        top: 0;
-        background: variables.$coconut;
-        z-index: 10;
-
+    &:not([id="hero"]) {
+        border-bottom: 1px solid variables.$chocolate;
+        
         &>a {
             &:last-child {
                 background-color: variables.$banana;
@@ -99,5 +95,12 @@
                 }
             }
         }
+    }
+
+    &[id="content"] {
+        position: sticky;
+        top: 0;
+        background: variables.$coconut;
+        z-index: 10;
     }
 }

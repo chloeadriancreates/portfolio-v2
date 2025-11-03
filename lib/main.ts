@@ -10,7 +10,8 @@ export const main = {
             cta: "Explore my universe"
         },
         showcase: {
-            title: "Projects"
+            title: "Projects",
+            skills: "Skills used"
         },
         about: {
             title: "Behind the screen",
@@ -60,7 +61,8 @@ export const main = {
             cta: "Découvre mon univers"
         },
         showcase: {
-            title: "Projets"
+            title: "Projets",
+            skills: "Compétences utilisées"
         },
         about: {
             title: "Derrière l'écran",

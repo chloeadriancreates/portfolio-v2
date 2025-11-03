@@ -4,7 +4,6 @@ import { Victor_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { Language } from "@/lib/types";
-import Footer from "@/components/Footer/footer";
 
 const victorMono = Victor_Mono();
 
@@ -29,11 +28,10 @@ const Home = async ({ children, params }: { children: React.ReactNode, params: P
     const { language } = await params;
 
     return (
-        <html lang={language}>
+        <html lang={language} data-scroll-behavior="smooth">
             <body className={styles.body}>
                 <div id="scroll-container">
                     {children}
-                    <Footer language={language} />
                 </div>
             </body>
         </html>

@@ -5,6 +5,7 @@ import { Language } from "@/lib/types";
 import Hero from "@/components/Hero/hero";
 import Header from "@/components/Header/header";
 import ProjectCard from "@/components/ProjectCard/projectcard";
+import Footer from "@/components/Footer/footer";
 import Image from "next/image";
 
 const Home = async ({ params }: { params: Promise<{ language: Language }> }) => {
@@ -37,6 +38,7 @@ const Home = async ({ params }: { params: Promise<{ language: Language }> }) => 
                     </div>
                 </section>
             </div>
+            <Footer language={language} />
         </main>
     )
 }

@@ -6,6 +6,7 @@
     @include mixins.flex(row, space-between, flex-start);
     background: variables.$gradient;
     padding: functions.pixelsToRem(40) functions.pixelsToRem(80);
+    border-top: 1px solid variables.$chocolate;
 
     &>div {
         &[id="contact"] {

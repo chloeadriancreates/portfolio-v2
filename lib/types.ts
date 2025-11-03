@@ -6,6 +6,8 @@ export type HeroContent = {
     cta: string
 }
 
+export type ProjectSlug = "thecantripcafe" | "laurenceadrianoster" | "spotifygraphicgenerator" | "waitress" | "hrnet" | "fisheye" | "ohmyfood" | "learnathome" |"photoorganizer";
+
 export type ProjectLink = {
     url: string,
     title: string
@@ -19,7 +21,7 @@ export type ProjectCopy = {
 
 export type Project = {
     title: string,
-    slug: string,
+    slug: ProjectSlug,
     tags: string[],
     images: number,
     copy: {

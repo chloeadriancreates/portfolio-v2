@@ -1,0 +1,88 @@
+@use "../../../../styles/variables";
+@use "../../../../styles/mixins";
+@use "../../../../styles/functions";
+
+.project {
+    @include mixins.flex(column, flex-start, stretch);
+
+    &>section {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        border-top: 1px solid variables.$chocolate;
+
+        &>aside {
+            @include mixins.flex(column, center, center);
+            position: relative;
+            border-right: 1px solid variables.$chocolate;
+
+            &>img {
+                object-fit: cover;
+
+                &:not(:last-of-type) {
+                    border-bottom: 1px solid variables.$chocolate;
+                }
+            }
+        }
+
+        &>article {
+            position: relative;
+
+            &>div {
+                @include mixins.flex(column, flex-start, flex-start);
+                padding: functions.pixelsToRem(50);
+                gap: functions.pixelsToRem(30);
+                position: sticky;
+                top: functions.pixelsToRem(136);
+
+                &>h2 {
+                    font-family: variables.$display;
+                    font-size: functions.pixelsToRem(30);
+                }
+
+                &>div {
+                    &[id="tags"] {
+                        @include mixins.flex(row, flex-start, center);
+                        flex-wrap: wrap;
+                        gap: functions.pixelsToRem(10);
+
+                        &>p {
+                            font-size: functions.pixelsToRem(15);
+                            padding: functions.pixelsToRem(12) functions.pixelsToRem(16) functions.pixelsToRem(8);
+                            border: 1px solid variables.$chocolate;
+                            border-radius: 500px;
+                        }
+                    }
+
+                    &[id="links"] {
+                        @include mixins.flex(row, flex-start, flex-start);
+                        flex-wrap: wrap;
+                        gap: functions.pixelsToRem(10);
+
+                        &>a {
+                            @include mixins.transition;
+                            @include mixins.cta;
+                            background: variables.$coconut;
+                            padding: functions.pixelsToRem(10) functions.pixelsToRem(20);
+                            border: 1px solid variables.$chocolate;
+
+                            &>span {
+                                font-family: variables.$display;
+                                font-size: functions.pixelsToRem(variables.$body);
+                            }
+                        }
+                    }
+
+                    &[id="description"] {
+                        @include mixins.flex(column, flex-start, flex-start);
+                        gap: functions.pixelsToRem(10);
+
+                        &>p {
+                            font-size: functions.pixelsToRem(variables.$body);
+                            line-height: 150%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -8,7 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { main } from "@/lib/main";
 import { useEffect, useState } from "react";
 
-const Header = ({ language, position }: { language: Language; position: "hero" | "content" }) => {
+const Header = ({ language, position }: { language: Language; position: "hero" | "content" | "details" }) => {
     const router = useRouter();
     const { header } = main[language];
     const [uiLang, setUiLang] = useState(language);
