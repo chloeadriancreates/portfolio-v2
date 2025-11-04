@@ -31,6 +31,7 @@
 
             &>p {
                 font-size: functions.pixelsToRem(variables.$body);
+                margin-bottom: functions.pixelsToRem(2.5);
             }
         }
 
