@@ -1,5 +1,6 @@
 export const main = {
     en: {
+        metadata: "Chloé Adrian | Front-end developer",
         header: {
             homepage: "Homepage",
             switch: "Passer à la version française"
@@ -51,6 +52,7 @@ export const main = {
         }
     },
     fr: {
+        metadata: "Chloé Adrian | Front-end developer",
         header: {
             homepage: "Page d'accueil",
             switch: "Switch to English"

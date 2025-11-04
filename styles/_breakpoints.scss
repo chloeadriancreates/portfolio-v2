@@ -4,6 +4,12 @@
     }
 }
 
+@mixin ipad {
+    @media (max-width: 900px) {
+        @content;
+    }
+}
+
 @mixin tablet {
     @media (max-width: 768px) {
         @content;
@@ -15,3 +21,9 @@
         @content;
     }
 }
+
+@mixin hoverable {
+    @media (hover: hover) {
+        @content;
+    }
+};

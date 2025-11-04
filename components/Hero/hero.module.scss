@@ -1,6 +1,7 @@
 @use "../../styles/variables";
 @use "../../styles/mixins";
 @use "../../styles/functions";
+@use "../../styles/breakpoints";
 
 .hero {
     @include mixins.flex(column, center, center);
@@ -14,15 +15,27 @@
         gap: functions.pixelsToRem(40);
         padding: functions.pixelsToRem(40) functions.pixelsToRem(80) functions.pixelsToRem(80);
 
+        @include breakpoints.tablet {
+            padding: functions.pixelsToRem(40);
+        }
+
         &>h1 {
             font-family: variables.$display;
             font-size: functions.pixelsToRem(60);
             text-align: center;
+
+            @include breakpoints.tablet {
+                font-size: functions.pixelsToRem(40);
+            }
         }
 
         &>p {
             font-size: functions.pixelsToRem(variables.$title);
             text-align: center;
+
+            @include breakpoints.tablet {
+                font-size: functions.pixelsToRem(25);
+            }
         }
 
         &>a {
@@ -35,6 +48,11 @@
             &>span {
                 font-family: variables.$display;
                 font-size: functions.pixelsToRem(variables.$title);
+                text-align: center;
+
+                @include breakpoints.tablet {
+                    font-size: functions.pixelsToRem(25);
+                }
             }
         }
     }

@@ -1,12 +1,19 @@
 @use "../../styles/variables";
 @use "../../styles/mixins";
 @use "../../styles/functions";
+@use "../../styles/breakpoints";
 
 .footer {
     @include mixins.flex(row, space-between, flex-start);
     background: variables.$gradient;
     padding: functions.pixelsToRem(40) functions.pixelsToRem(80);
     border-top: 1px solid variables.$chocolate;
+    gap: functions.pixelsToRem(40);
+
+    @include breakpoints.tablet {
+        flex-direction: column;
+        padding: functions.pixelsToRem(40);
+    }
 
     &>div {
         &[id="contact"] {
@@ -17,6 +24,10 @@
         &[id="copyright"] {
             @include mixins.flex(column, flex-start, flex-end);
             gap: functions.pixelsToRem(variables.$body);
+
+            @include breakpoints.tablet {
+                align-items: flex-start;
+            }
 
             &>p {
                 font-size: functions.pixelsToRem(variables.$body);

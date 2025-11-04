@@ -29,3 +29,8 @@ export type Project = {
         fr: ProjectCopy
     }
 }
+
+export type ProjectParams = { 
+    language: Language; 
+    slug: ProjectSlug 
+};

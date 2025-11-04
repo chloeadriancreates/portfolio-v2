@@ -7,8 +7,12 @@
     & h2 {
         font-family: variables.$display;
         font-size: functions.pixelsToRem(30);
-        margin: 0 functions.pixelsToRem(80);
+        margin: functions.pixelsToRem(40) functions.pixelsToRem(80);
         text-align: center;
+
+        @include breakpoints.tablet {
+            font-size: functions.pixelsToRem(25);
+        }
     }
 
     & section {
@@ -21,16 +25,35 @@
             @include breakpoints.laptop {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            @include breakpoints.ipad {
+                grid-template-columns: 1fr;
+            }
+
+            @include breakpoints.tablet {
+                margin: functions.pixelsToRem(40) functions.pixelsToRem(40) functions.pixelsToRem(120);
+                gap: functions.pixelsToRem(40);
+            }
         }
 
         &[id="about"] {
             margin: 0 functions.pixelsToRem(80);
+
+            @include breakpoints.tablet {
+                margin: 0 functions.pixelsToRem(40);
+            }
 
             &>div[id="photos"] {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: functions.pixelsToRem(60);
                 margin: functions.pixelsToRem(60) 0;
+
+                @include breakpoints.tablet {
+                    grid-template-columns: 1fr;
+                    gap: functions.pixelsToRem(40);
+                    margin: functions.pixelsToRem(40) 0;
+                }
 
                 &>div {
                     @include mixins.flex(column, flex-start, stretch);
@@ -39,7 +62,7 @@
                     &>img {
                         border: 1px solid variables.$chocolate;
                         aspect-ratio: 1;
-                        height: fit-content!important;
+                        height: fit-content !important;
                     }
 
                     &>p {
@@ -60,6 +83,10 @@
                 @include mixins.flex(column, flex-start, flex-start);
                 gap: functions.pixelsToRem(10);
                 margin-bottom: functions.pixelsToRem(60);
+
+                @include breakpoints.tablet {
+                    margin-bottom: functions.pixelsToRem(40);
+                }
 
                 &>p {
                     font-size: functions.pixelsToRem(variables.$body);

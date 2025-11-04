@@ -1,12 +1,33 @@
 import styles from "./page.module.scss";
 import Header from "@/components/Header/header";
 import Footer from "@/components/Footer/footer";
-import { Language, ProjectSlug } from "@/lib/types";
+import { Language, ProjectSlug, ProjectParams } from "@/lib/types";
 import { main } from "@/lib/main";
 import { projects } from "@/lib/projects";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<ProjectParams>;
+}): Promise<Metadata> {
+    const { language, slug } = await params;
+    const project = projects.find(p => p.slug === slug) ?? notFound();
+
+    return {
+        title: project.title,
+        description: project.copy[language].tagline,
+        alternates: {
+            languages: {
+                en: `/en/project/${slug}`,
+                fr: `/fr/project/${slug}`,
+            }
+        }
+    };
+}
 
 const ProjectPage = async ({ params }: { params: Promise<{ language: Language, slug: ProjectSlug }> }) => {
     const { language, slug } = await params;

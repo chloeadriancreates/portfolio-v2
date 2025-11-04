@@ -1,17 +1,26 @@
 @use "../../styles/variables";
 @use "../../styles/mixins";
 @use "../../styles/functions";
+@use "../../styles/breakpoints";
 
 .header {
     @include mixins.flex(row, space-between, center);
     width: 100%;
     padding: functions.pixelsToRem(30) functions.pixelsToRem(80);
 
+    @include breakpoints.tablet {
+        padding: functions.pixelsToRem(30) functions.pixelsToRem(40);
+    }
+
     &>a {
         &:first-child {
             @include mixins.link;
             font-family: variables.$display;
             font-size: functions.pixelsToRem(30);
+
+            @include breakpoints.tablet {
+                font-size: functions.pixelsToRem(25);
+            }
         }
 
         &:last-child {
@@ -19,6 +28,10 @@
             padding: functions.pixelsToRem(12);
             border: 1px solid variables.$chocolate;
             border-radius: 500px;
+
+            @include breakpoints.tablet {
+                padding: functions.pixelsToRem(8);
+            }
 
             &>div {
                 @include mixins.transition;
@@ -29,17 +42,31 @@
                 height: functions.pixelsToRem(50);
                 width: functions.pixelsToRem(50);
 
+                @include breakpoints.tablet {
+                    width: functions.pixelsToRem(35);
+                    height: functions.pixelsToRem(35);
+                }
+
                 &>p {
                     text-transform: uppercase;
                     font-size: functions.pixelsToRem(25);
                     aspect-ratio: 1;
                     height: functions.pixelsToRem(28);
+
+                    @include breakpoints.tablet {
+                        font-size: functions.pixelsToRem(18);
+                        height: functions.pixelsToRem(20);
+                    }
                 }
             }
 
             &[lang="fr"] {
                 &>div {
                     margin-right: functions.pixelsToRem(60);
+
+                    @include breakpoints.tablet {
+                        margin-right: functions.pixelsToRem(40);
+                    }
                 }
 
                 &:hover>div,
@@ -51,6 +78,10 @@
             &[lang="en"] {
                 &>div {
                     margin-left: functions.pixelsToRem(60);
+
+                    @include breakpoints.tablet {
+                        margin-left: functions.pixelsToRem(40);
+                    }
                 }
 
                 &:hover>div,
@@ -77,7 +108,7 @@
 
     &:not([id="hero"]) {
         border-bottom: 1px solid variables.$chocolate;
-        
+
         &>a {
             &:last-child {
                 background-color: variables.$banana;

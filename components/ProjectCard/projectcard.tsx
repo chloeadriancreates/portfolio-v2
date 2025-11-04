@@ -11,12 +11,14 @@ const ProjectCard = ({ project, language }: { project: Project, language: Langua
 
     return (
         <Link href={`/${language}/project/${slug}`} className={styles.project}>
-            <Image src={`/images/${slug}/1.jpg`} alt="" fill={true} sizes="(max-width: 768px) 100vw, 33vw" />
+            <Image src={`/images/${slug}/1.jpg`} alt="" fill={true} sizes="(max-width: 900px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             <div>
                 <div>
                     <h3>{title}</h3>
                     <p id="tagline">{tagline}</p>
-                    <p id="tags" aria-label={skills}>{tags.join(", ")}</p>
+                    <div id="tags" aria-label={skills}>
+                        {tags.map(tag => <p key={tag}>{tag}</p>)}
+                    </div>
                 </div>
             </div>
         </Link>

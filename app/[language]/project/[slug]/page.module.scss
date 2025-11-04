@@ -1,6 +1,7 @@
 @use "../../../../styles/variables";
 @use "../../../../styles/mixins";
 @use "../../../../styles/functions";
+@use "../../../../styles/breakpoints";
 
 .project {
     @include mixins.flex(column, flex-start, stretch);
@@ -8,12 +9,22 @@
     &>section {
         display: grid;
         grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
         border-top: 1px solid variables.$chocolate;
+
+        @include breakpoints.tablet {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, auto);
+        }
 
         &>aside {
             @include mixins.flex(column, center, center);
             position: relative;
             border-right: 1px solid variables.$chocolate;
+
+            @include breakpoints.tablet {
+                grid-row: 2 / span 1;
+            }
 
             &>img {
                 object-fit: cover;
@@ -21,11 +32,21 @@
                 &:not(:last-of-type) {
                     border-bottom: 1px solid variables.$chocolate;
                 }
+
+                &:first-of-type {
+                    @include breakpoints.tablet {
+                        border-top: 1px solid variables.$chocolate;
+                    }
+                }
             }
         }
 
         &>article {
             position: relative;
+
+            @include breakpoints.tablet {
+                grid-row: 1 / span 1;
+            }
 
             &>div {
                 @include mixins.flex(column, flex-start, flex-start);
@@ -33,6 +54,12 @@
                 gap: functions.pixelsToRem(30);
                 position: sticky;
                 top: functions.pixelsToRem(136);
+
+                @include breakpoints.tablet {
+                    position: relative;
+                    top: 0;
+                    padding: functions.pixelsToRem(40);
+                }
 
                 &>h2 {
                     font-family: variables.$display;
