@@ -9,11 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 
-export async function generateMetadata({
-    params,
-}: {
-    params: Promise<ProjectParams>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<ProjectParams> }): Promise<Metadata> {
     const { language, slug } = await params;
     const project = projects.find(p => p.slug === slug) ?? notFound();
 
@@ -48,6 +44,8 @@ const ProjectPage = async ({ params }: { params: Promise<{ language: Language, s
                 src={`/images/${slug}/1.jpg`}
                 priority={true}
                 alt="" fill={true} sizes="100vw"
+                placeholder="blur"
+                blurDataURL={`/images/${slug}/blur.jpg`}
             />
             <section>
                 <aside>

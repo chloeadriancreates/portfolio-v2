@@ -378,7 +378,7 @@ export const projects: Project[] = [
                         title: "See prototype on Figma"
                     },
                     {
-                        url: "https://www.figma.com/file/89n2M6mKT4yzRTs7tgY079/Learn%40Home?type=design&node-id=231%3A2348&mode=design&t=W2m71cSQqalGuik9-1",
+                        url: "https://www.figma.com/design/89n2M6mKT4yzRTs7tgY079/Learn-Home?node-id=15-105&t=mnS6BcfYIpdmIejt-1",
                         title: "See Figma file"
                     }
                 ]
