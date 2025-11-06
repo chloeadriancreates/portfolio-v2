@@ -1,6 +1,6 @@
 ![Banner](READMEbanner.jpg)
 
-# 💻 chloeadrian.dev
+# 💻 Portfolio
 
 **My personal portfolio, designed and developed from scratch to showcase my work as a front-end developer.**  
 Built with Next.js, TypeScript, and Sass.
@@ -23,7 +23,6 @@ Every page was built to reflect who I am as a developer: someone who values usab
 - **Next.js** for fast, scalable page rendering  
 - **TypeScript** for reliable, maintainable code  
 - **Sass** for organized styling and design system control  
-- **Framer Motion** for subtle, meaningful animations  
 - **Figma** for layout and visual design  
 
 ---
